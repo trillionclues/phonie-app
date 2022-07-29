@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Name of chosen challenge</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <form action="" class="form">
+        <h3 class="sign-up">Sign Up</h3>
+        <div class="form-div">
+          <label for="firstname" class="form-label">Firstname</label>
+          <input type="text" id="firstname" />
+        </div>
+        <div class="form-div">
+          <label for="lastname" class="form-label">Lastname</label>
+          <input type="text" id="lastname" />
+        </div>
+        <div class="form-div">
+          <label for="number" class="form-label">Phone Number</label>
+          <div class="phone-number">
+            <div class="phone-input">
+              <!-- onkeypress="return phoneNumberFormat(event)" -->
+              <input
+                type="tel"
+                pattern="^(3-)?[0-9]{4}-[0-9]{3}-[0-9]{4}"
+                oninput="formatPhoneNum(this)"
+                id="number"
+                required
+              />
+            </div>
+            <div class="carrier-logo">
+              <div>
+                <img
+                  src="logos/airtel.png"
+                  oninput="logoChange()"
+                  width="20"
+                  id="logo"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-div">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" id="username" />
+        </div>
+        <div class="form-div">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" />
+        </div>
+        <div class="form-div">
+          <label for="conpassword" class="form-label">Confirm Password</label>
+          <input type="password" id="conpassword" />
+        </div>
+        <button class="submit">Register</button>
+      </form>
+      <div>
+        <p class="footnote">
+          Built with 💖 by <b>Circle 145</b>. Enjoy the rest of the day!
+        </p>
+      </div>
+    </div>
+
+    <input id="phone" onInput="this.value = phoneFormat(this.value)" />
+
+    <script src="./app.js"></script>
+    <!-- // ============= EEND DO NOT EDIT ============== // -->
+    <!-- <script src="index.mjs" type="module"></script> -->
+    <!-- // ============= EEND DO NOT EDIT ============== // -->
+  </body>
+</html>

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --bg-color: #fff;
+  --label-font-size: 0.9rem;
+  --signup-font-size: 2em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(bg.jpg);
+  background-size: cover;
+  background-position: right;
+  font-family: 'DM Sans', sans-serif;
+}
+.container {
+  background-color: var(--bg-color);
+  margin: 50px auto;
+  width: 500px;
+  max-width: 90%;
+  padding: 60px;
+
+  border-radius: 0.9375rem;
+}
+.sign-up {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: var(--signup-font-size);
+}
+form {
+  width: 90%;
+  margin: 5px auto;
+}
+.form-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.7rem;
+}
+.form-label {
+  font-size: var(--label-font-size);
+  font-weight: 500;
+  color: #55586f;
+  margin-bottom: 0.25rem;
+}
+input {
+  padding: 0.9375em 1.25rem;
+  font-size: 0.9375rem;
+  margin: 5px 0;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  color: #55586f;
+  outline: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+}
+
+.phone-number {
+  display: flex;
+}
+.phone-input {
+  flex-grow: 6;
+}
+.carrier-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  padding-top: 0.4rem;
+  border: 1px solid #e7e7e7;
+  border-radius: 0 10px 10px 0;
+  background-color: #f7f7f7;
+  color: #55586f;
+  outline: none;
+  height: 50px;
+  align-self: center;
+  border-left: none;
+}
+#number {
+  width: 100%;
+  border-radius: 10px 0 0 10px;
+  border-right: none;
+}
+
+.submit {
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(5, 9, 41, 0.95);
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.footnote {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 12px;
+}

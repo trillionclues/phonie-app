@@ -1,30 +1,5 @@
 const phoneVer = document.querySelector('#number')
-const logos = document.querySelector("img[src='logos/airtel.png']")
-
-const mtn = [
-  '0806',
-  '0703',
-  '0706',
-  '0810',
-  '0813',
-  '0814',
-  '0816',
-  '0903',
-  '0906',
-]
-const glo = [0805, 0807, 0811, 0705, 0815, 0905]
-const airtel = [0802, 0808, 0812, 0701, 0902, 0907, 0901]
-const _9mobile = [0809, 0817, 0818, 0908, 0909]
-
-// function checker() {
-//   if (mtn.includes(0806)) {
-//     console.log('yes')
-//   } else {
-//     console.log('no')
-//   }
-// }
-
-// checker()
+const logos = document.querySelector("img[src='phone.jpg']")
 
 // function logoChange() {
 //   if (mtn.includes() logos  && nums.length === 4 && logos && !digits) {
@@ -32,18 +7,74 @@ const _9mobile = [0809, 0817, 0818, 0908, 0909]
 //   }
 // }
 
-// logoChange()
-
-mtn.forEach((element) => {
-  if (mtn.includes(element)) {
-    console.log(element)
-  }
-})
-
+// structure phone input
 const formatPhoneNum = (inputField) => {
   const nums = inputField.value.split('-').join('')
   const countryCode = '234'
   const digits = nums[0] === countryCode ? 234 : 0
+  const mtn = nums[3]
+  // object containing phone courier logos
+
+  // const logos = {
+  //   airtel: airtelLogo,
+  //   mtnLogo: "logos.src = 'logos/mtn.png'",
+  //   _9mobileLogo: "logos.src = 'logos/9mobile.png'",
+  //   gloLogo: "logos.src = 'logos/glo.jpg'",
+  // }
+
+  // object containing array of network prefixes
+  let networks = {
+    mtnNum: [0806, 0703, 0706, 0810, 0813, 0814, 0816, 0903, 0906],
+    airtelNum: [0802, 0808, 0812, 0701, 0902, 0907, 0901],
+    gloNum: [0805, 0807, 0811, 0705, 0815, 0905],
+    _9mobileNum: [0809, 0817, 0818, 0908, 0909],
+  }
+
+  if (
+    nums.includes(networks.airtelNum[0]) ||
+    nums.includes(networks.airtelNum[1]) ||
+    nums.includes(networks.airtelNum[2]) ||
+    nums.includes(networks.airtelNum[3]) ||
+    nums.includes(networks.airtelNum[4]) ||
+    nums.includes(networks.airtelNum[5]) ||
+    nums.includes(networks.airtelNum[6])
+  ) {
+    // airtel logo switch
+    logos.src = 'logos/airtel.png'
+  } else if (
+    nums.includes(networks.mtnNum[0]) ||
+    nums.includes(networks.mtnNum[1]) ||
+    nums.includes(networks.mtnNum[2]) ||
+    nums.includes(networks.mtnNum[3]) ||
+    nums.includes(networks.mtnNum[4]) ||
+    nums.includes(networks.mtnNum[5]) ||
+    nums.includes(networks.mtnNum[6]) ||
+    nums.includes(networks.mtnNum[7]) ||
+    nums.includes(networks.mtnNum[8])
+  ) {
+    // mtn logo switch
+    logos.src = 'logos/mtn.png'
+  } else if (
+    nums.includes(networks.gloNum[0]) ||
+    nums.includes(networks.gloNum[1]) ||
+    nums.includes(networks.gloNum[2]) ||
+    nums.includes(networks.gloNum[3]) ||
+    nums.includes(networks.gloNum[4]) ||
+    nums.includes(networks.gloNum[5])
+  ) {
+    // glo logo switch
+    logos.src = 'logos/glo.jpg'
+  } else if (
+    nums.includes(networks._9mobileNum[0]) ||
+    nums.includes(networks._9mobileNum[1]) ||
+    nums.includes(networks._9mobileNum[3]) ||
+    nums.includes(networks._9mobileNum[4])
+  ) {
+    // 9mobile logo switch
+    logos.src = 'logos/9mobile.png'
+  } else {
+    logos.src = 'phone.jpg'
+  }
 
   // get character position of the cursor:
   let cursorPosition = inputField.selectionStart
@@ -93,37 +124,20 @@ const formatPhoneNum = (inputField) => {
   inputField.selectionEnd = cursorPosition
 }
 
-// phoneVer.addEventListener('keyup', (e) => {
-//   let val = e.target.value
+// function checkValue(value, arr) {
+//   let status = 'Not exist'
 
-//   e.target.value = val
-//     .replace(/\D/g, '')
-//     .replace(/(\d{1,4})(\d{1,3})?(\d{1,4})?/g, function (t, f, s, t) {
-//       if (t && logos) {
-//         return `(${f}) ${s}-${t}`
-//       } else if (s) {
-//         return `(${f}) ${s}`
-//       } else if (f) {
-//         return `(${f})`
-//       }
-//     })
-// })
-
-// function formatPhoneNumber(value) {
-//   if (!value) return value
-//   const phoneNumber = value.replace(/[^\d]/g, '')
-//   const phoneNumberLength = phoneNumber.length
-
-//   if (phoneNumberLength < 4) return phoneNumber
-
-//   if (phoneNumberLength < 7) {
-//     return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`
+//   for (let i = 0; i < mtn.length; i++) {
+//     const names = mtn[i]
+//     if (names == value) {
+//       status = 'Exist'
+//       break
+//     }
 //   }
-//   return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
-//     3,
-//     6
-//   )} - ${phoneNumber.slice(6, 9)}`
+//   return status
 // }
+// console.log('status :' + checkValue(0903, mtn))
+// console.log('status :' + checkValue(0960, mtn))
 
 // function phoneNumberFormat(evt) {
 //   // // phone number input
@@ -139,21 +153,4 @@ const formatPhoneNum = (inputField) => {
 //   } else {
 //     return true
 //   }
-// }
-
-// function phoneFormat(input) {
-//   //returns (###) ###-####
-//   input = input.replace(/\D/g, '')
-//   var size = input.length
-
-//   // if (size > 0 ) {
-//   //   input = '+' + input
-//   // }
-//   // if (size >= 3) {
-//   //   input = input.slice(0, 4) + input.slice(4, 11)
-//   // }
-//   // if (size > 6) {
-//   //   input = input.slice(0, 9) + '-' + input.slice(9)
-//   // }
-//   return input
 // }

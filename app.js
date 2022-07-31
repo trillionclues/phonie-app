@@ -24,9 +24,9 @@ const formatPhoneNum = (inputField) => {
 
   // object containing array of network prefixes
   let networks = {
-    mtnNum: [0806, 0703, 0706, 0810, 0813, 0814, 0816, 0903, 0906],
-    airtelNum: [0802, 0808, 0812, 0701, 0902, 0907, 0901],
-    gloNum: [0805, 0807, 0811, 0705, 0815, 0905],
+    mtnNum: [0706, 0803, 0806, 0703, 0810, 0813, 0814, 0816, 0903, 0906],
+    airtelNum: [0701, 0802, 0808, 0812, 0902, 0901],
+    gloNum: [0705, 0805, 0807, 0811, 0815, 0905],
     _9mobileNum: [0809, 0817, 0818, 0908, 0909],
   }
 
@@ -37,7 +37,14 @@ const formatPhoneNum = (inputField) => {
     nums.includes(networks.airtelNum[3]) ||
     nums.includes(networks.airtelNum[4]) ||
     nums.includes(networks.airtelNum[5]) ||
-    nums.includes(networks.airtelNum[6])
+    nums.includes(networks.airtelNum[6]) ||
+    nums.includes(countryCode && networks.airtelNum[0]) ||
+    nums.includes(countryCode && networks.airtelNum[1]) ||
+    nums.includes(countryCode && networks.airtelNum[2]) ||
+    nums.includes(countryCode && networks.airtelNum[3]) ||
+    nums.includes(countryCode && networks.airtelNum[4]) ||
+    nums.includes(countryCode && networks.airtelNum[5]) ||
+    nums.includes(countryCode && networks.airtelNum[6])
   ) {
     // airtel logo switch
     logos.src = 'logos/airtel.png'
@@ -50,7 +57,18 @@ const formatPhoneNum = (inputField) => {
     nums.includes(networks.mtnNum[5]) ||
     nums.includes(networks.mtnNum[6]) ||
     nums.includes(networks.mtnNum[7]) ||
-    nums.includes(networks.mtnNum[8])
+    nums.includes(networks.mtnNum[8]) ||
+    nums.includes(networks.mtnNum[9]) ||
+    nums.includes(countryCode && networks.mtnNum[0]) ||
+    nums.includes(countryCode && networks.mtnNum[1]) ||
+    nums.includes(countryCode && networks.mtnNum[2]) ||
+    nums.includes(countryCode && networks.mtnNum[3]) ||
+    nums.includes(countryCode && networks.mtnNum[4]) ||
+    nums.includes(countryCode && networks.mtnNum[5]) ||
+    nums.includes(countryCode && networks.mtnNum[6]) ||
+    nums.includes(countryCode && networks.mtnNum[7]) ||
+    nums.includes(countryCode && networks.mtnNum[8]) ||
+    nums.includes(countryCode && networks.mtnNum[9])
   ) {
     // mtn logo switch
     logos.src = 'logos/mtn.png'
@@ -60,15 +78,27 @@ const formatPhoneNum = (inputField) => {
     nums.includes(networks.gloNum[2]) ||
     nums.includes(networks.gloNum[3]) ||
     nums.includes(networks.gloNum[4]) ||
-    nums.includes(networks.gloNum[5])
+    nums.includes(networks.gloNum[5]) ||
+    nums.includes(countryCode && networks.gloNum[0]) ||
+    nums.includes(countryCode && networks.gloNum[1]) ||
+    nums.includes(countryCode && networks.gloNum[2]) ||
+    nums.includes(countryCode && networks.gloNum[3]) ||
+    nums.includes(countryCode && networks.gloNum[4]) ||
+    nums.includes(countryCode && networks.gloNum[5])
   ) {
     // glo logo switch
     logos.src = 'logos/glo.jpg'
   } else if (
     nums.includes(networks._9mobileNum[0]) ||
     nums.includes(networks._9mobileNum[1]) ||
+    nums.includes(networks._9mobileNum[2]) ||
     nums.includes(networks._9mobileNum[3]) ||
-    nums.includes(networks._9mobileNum[4])
+    nums.includes(networks._9mobileNum[4]) ||
+    nums.includes(countryCode && networks._9mobileNum[0]) ||
+    nums.includes(countryCode && networks._9mobileNum[1]) ||
+    nums.includes(countryCode && networks._9mobileNum[2]) ||
+    nums.includes(countryCode && networks._9mobileNum[3]) ||
+    nums.includes(countryCode && networks._9mobileNum[4])
   ) {
     // 9mobile logo switch
     logos.src = 'logos/9mobile.png'
@@ -80,14 +110,14 @@ const formatPhoneNum = (inputField) => {
   let cursorPosition = inputField.selectionStart
 
   // add dashes (format 234-xxx-xxx-xxxx or xxx-xxx-xxxx):
-  if (nums.length > digits + 14) {
+  if (nums.length > digits + 11) {
     inputField.value =
       `${digits === 234 ? nums.slice(0, digits) + '-' : ''}` +
       nums.slice(digits, digits + 4) +
       '-' +
-      nums.slice(digits + 4, digits + 7) +
+      nums.slice(digits + 4, digits + 8) +
       '-' +
-      nums.slice(digits + 7, digits + 11)
+      nums.slice(digits + 8, digits + 13)
   } else if (nums.length > digits + 7) {
     inputField.value =
       `${digits === 234 ? nums.slice(0, digits) + '-' : ''}` +
@@ -124,18 +154,7 @@ const formatPhoneNum = (inputField) => {
   inputField.selectionEnd = cursorPosition
 }
 
-// function checkValue(value, arr) {
-//   let status = 'Not exist'
-
-//   for (let i = 0; i < mtn.length; i++) {
-//     const names = mtn[i]
-//     if (names == value) {
-//       status = 'Exist'
-//       break
-//     }
-//   }
-//   return status
-// }
+// Restrict input to numerics alone
 // console.log('status :' + checkValue(0903, mtn))
 // console.log('status :' + checkValue(0960, mtn))
 
